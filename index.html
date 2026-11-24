@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CI/CD Assignment 3 - FA23-BSE-082</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      padding: 32px;
+      max-width: 620px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    }
+    .badge {
+      display: inline-block;
+      background: #0284c7;
+      color: #e0f2fe;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+      letter-spacing: 0.4px;
+    }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 12px;
+      color: #38bdf8;
+    }
+    .meta {
+      background: #0f172a;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 22px;
+      border-left: 4px solid #38bdf8;
+      line-height: 1.7;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #334155;
+    }
+    .section h2 {
+      font-size: 15px;
+      color: #cbd5e1;
+      margin-bottom: 10px;
+    }
+    .row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    input[type="text"] {
+      flex: 1;
+      min-width: 200px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #475569;
+      background: #0f172a;
+      color: #f8fafc;
+      font-size: 14px;
+    }
+    button {
+      padding: 10px 18px;
+      border: none;
+      border-radius: 8px;
+      background: #2563eb;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    button:hover { background: #1d4ed8; }
+    .btn-green { background: #059669; }
+    .btn-green:hover { background: #047857; }
+    .output {
+      margin-top: 10px;
+      min-height: 22px;
+      color: #4ade80;
+      font-weight: 500;
+    }
+    .version {
+      margin-top: 14px;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+  <main class="card">
+    <span class="badge">CSC418 Cloud Computing &bull; Lab Assignment 3</span>
+    <h1 id="page-heading">Cloud Computing CI/CD Pipeline Portal</h1>
+    <div class="meta">
+      <p id="student-name">Student Name: Muhammad Usman</p>
+      <p id="roll-number">Roll Number: FA23-BSE-082</p>
+      <p id="release-tag" class="version">Release: v1.0 &mdash; Automated Jenkins &amp; Selenium Deployment</p>
+    </div>
+
+    <div class="section">
+      <h2>1. Pipeline Status Check</h2>
+      <button id="status-btn" class="btn-green" onclick="document.getElementById('status-msg').textContent='Pipeline Active - Verified by Selenium!'">Check Status</button>
+      <p id="status-msg" class="output"></p>
+    </div>
+
+    <div class="section">
+      <h2>2. Deployment Note Echo</h2>
+      <div class="row">
+        <input id="note-input" type="text" placeholder="Enter a deployment note..." />
+        <button id="submit-btn" onclick="submitNote()">Submit</button>
+      </div>
+      <p id="submitted-output" class="output"></p>
+    </div>
+  </main>
+
+  <script>
+    function submitNote() {
+      var val = document.getElementById('note-input').value.trim();
+      document.getElementById('submitted-output').textContent = val ? 'Submitted: ' + val : 'Please enter text first.';
+    }
+  </script>
+</body>
+</html>
